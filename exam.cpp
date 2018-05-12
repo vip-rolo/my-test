@@ -15,7 +15,7 @@ int main()
 	{
 		for(j=1;j<i;j++)
 		{
-			if(i-j+a[j]>20000)continue;
+			if(i-j+a[j]>20000)break;
 			if(a[i]>i-j+a[j])ans++;
 		}
 		ans%=12345;
