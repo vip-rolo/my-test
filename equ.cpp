@@ -9,26 +9,13 @@ double f(double v)
 }
 int main()
 {
-	freopen("equ.in","r",stdin);
+    freopen("equ.in","r",stdin);
 	freopen("equ.out","w",stdout);
-	double l,r,mid,x,y,z;
-	scanf("%f%f%f%f",&a,&b,&c,&d);
-	for(int i=1;i<=3;i++)
+	ios::sync_with_stdio(0);
+	cin>>a>>b>>c>>d;
+	for(double i=-100;i<=100;i+=0.01)
 	{
-		l=-100,r=100;
-		while(l+1<r)
-		{
-			mid=(l+r)/2;
-			if(f(mid)==0)
-			{
-				if(i==1){x=mid;break;}
-				if(i==2&&mid!=x){y=mid;break;}
-				if(i==3&&mid!=x&&mid!=y){z=mid;break;}
-			}
-			if(f(mid)<0)l=mid;
-			else r=mid;
-		}
+		if(fabs(f(i))<=0.00001)printf("%0.2f ",i);
 	}
-	printf("%0.2f %0.2f %0.2f",x,y,z);
 	return 0;
 }
