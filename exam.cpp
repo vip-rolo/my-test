@@ -1,6 +1,5 @@
 #include<iostream>
 #include<cstdio>
-#include<bits/stdc++.h>
 using namespace std;
 int a[1000000];
 int main()
@@ -16,9 +15,11 @@ int main()
 		for(j=1;j<i;j++)
 		{
 			if(i-j+a[j]>20000)break;
-			if(a[i]>i-j+a[j])ans++;
+			if(a[i]>i-j+a[j])
+			{
+				ans++;ans%=12345;
+			}
 		}
-		ans%=12345;
 	}
 	cout<<ans;
 	return 0;
