@@ -28,7 +28,7 @@ int main()
 	freopen("cell.in","r",stdin);
 	freopen("cell.out","w",stdout);
 	int i,j,ans=0;char x;
-	ios::sync_with_stdio(1);
+	ios::sync_with_stdio(0);
 	cin>>m>>n;
 	for(i=1;i<=m;i++)for(j=1;j<=n;j++)
 	{
