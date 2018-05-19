@@ -2,22 +2,26 @@
 #include<cstdio>
 #include<bits/stdc++.h>
 using namespace std;
-int a[101][101],n,m,l[10000][2];
-int dx[5]={0,0,-1,0,1};
-int dy[5]={0,-1,0,1,0};
+int n,m,k=0,dx[5]={0,-1,0,1,0},dy[5]={0,0,1,0,-1};
+bool xb[101][101];
 void bfs(int x,int y)
 {
-	int h=0,t=2;l[1][0]=x;l[1][1]=y;
-	while(h!=t)
-	{
+	k++;
+	int h=-1,t=1;
+	int dl[10000][3];
+	dl[0][1]=x;
+	dl[0][2]=y;
+	while (h<t)
+	{	
 		h++;
-		a[l[h][0]][l[h][1]]=0;
-		for(int i=1;i<=4;i++)
+		for (int i=1;i<=4;i++)
 		{
-			int ddx=l[h][0]+dx[i],ddy=l[h][1]+dy[i];
-			if(a[ddx][ddy]!=0)
+			int ddx=dl[h][1]+dx[i],ddy=dl[h][2]+dy[i];
+			if (ddx>=1&&ddx<=n&&ddy>=1&&ddy<=m&&xb[ddx][ddy]==1)
 			{
-				l[t][0]=ddx;l[t][1]=ddy;
+				dl[t][1]=ddx;
+				dl[t][2]=ddy;
+				xb[ddx][ddy]=0;
 				t++;
 			}
 		}
@@ -27,23 +31,22 @@ int main()
 {
 	freopen("cell.in","r",stdin);
 	freopen("cell.out","w",stdout);
-	int i,j,ans=0;char x;
 	ios::sync_with_stdio(0);
-	cin>>m>>n;
-	for(i=1;i<=m;i++)for(j=1;j<=n;j++)
+	cin>>n>>m;
+	char g;
+	for (int i=1;i<=n;i++)for (int j=1;j<=m;j++)
 	{
-		cin>>x;
-		if(x=='0')a[i][j]=0;
-		else a[i][j]=1;
+		cin>>g;
+		if (g=='0') xb[i][j]=0;
+		else xb[i][j]=1;
 	}
-	for(i=1;i<=m;i++)for(j=1;j<=n;j++)
+	for (int i=1;i<=n;i++)for (int j=1;j<=m;j++)
 	{
-		if(a[i][j]!=0)
+		if (xb[i][j]==1)
 		{
-			ans++;
 			bfs(i,j);
 		}
 	}
-	cout<<ans;
+	cout<<k;
 	return 0;
 }
