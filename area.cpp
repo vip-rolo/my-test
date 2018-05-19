@@ -29,7 +29,7 @@ int main()
 	freopen("area.in","r",stdin);
 	freopen("area.out","w",stdout);
 	string aa;int i,j=1,ans=0,len,j_;
-	ios::sync_with_stdio(1);
+	ios::sync_with_stdio(0);
 	while(cin>>aa)
 	{
 		len=aa.size();
