@@ -30,7 +30,7 @@ int main()
 	freopen("mud.in","r",stdin);
 	freopen("mud.out","w",stdout);
 	int i,j,s,x_,y_;
-	ios::sync_with_stdio(1);
+	ios::sync_with_stdio(0);
 	cin>>m>>n>>s;
 	for(i=1;i<=s;i++)
 	{
