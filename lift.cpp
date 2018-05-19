@@ -27,7 +27,7 @@ int main()
 	freopen("lift.in","r",stdin);
 	freopen("lift.out","w",stdout);
 	int i;
-	ios::sync_with_stdio(1);
+	ios::sync_with_stdio(0);
 	cin>>n>>x>>y;
 	for(i=1;i<=n;i++)cin>>a[i];
 	cout<<bfs(x);
