@@ -18,9 +18,9 @@ int bfs(int x,int y,int v)
 			if(a[ddx][ddy]!=1)
 			{
 				l[t][0]=ddx;l[t][1]=ddy;l[t][2]=l[h][2]+1;
+				if((l[t][0]==m&&l[t][1]==n))return l[t][2];
+				a[l[t][0]][l[t][1]]=1;	
 				if(t==1000)t=1;else t++;
-				if((l[t][0]==(m+500))&&(l[t][1]==(n+500)))return l[t][2];
-				a[l[t][0]][l[t][1]]=1;
 			}
 		}
 	}
@@ -32,10 +32,12 @@ int main()
 	int i,j,s,x_,y_;
 	ios::sync_with_stdio(0);
 	cin>>m>>n>>s;
+	m+=500,n+=500;
 	for(i=1;i<=s;i++)
 	{
 		cin>>x_>>y_;
-		a[x_+500][y_+500]=1;
+		x_+=500;y_+=500;
+		a[x_][y_]=1;
 	}
 	cout<<bfs(500,500,0);
 	return 0;
